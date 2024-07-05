@@ -73,5 +73,11 @@ namespace CodePulse.Api.Controllers
 
             return Ok(categoriesDto);
         }
+        [HttpDelete("deleteCategory/{id}")]
+        public async Task<IActionResult> DeleteCategory(string id)
+        {
+             await _iCategoryRepository.DeleteCategory(id);  
+            return Ok();
+        }
     }
 }

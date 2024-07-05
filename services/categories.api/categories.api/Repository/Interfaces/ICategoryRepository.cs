@@ -10,5 +10,6 @@ namespace CodePulse.Api.Repository.Interfaces
         IEnumerable<Category> GetCategories();
         Task<Category> GetCategoryById(string id);
         Task<Category> UpdateCategory(CategoryRequestDto request);
+        Task DeleteCategory(string id);
     }
 }

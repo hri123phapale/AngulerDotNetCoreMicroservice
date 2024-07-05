@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavabarComponent } from './core/components/navabar/navabar.component';
-import { CategoryListComponent } from './features/category/category-list/category-list.component';
-import { AddCategoryComponent } from './features/category/add-category/add-category.component';
+import { CategoryListComponent } from './features/category/category-list/category-list.component'; 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { EditCategoryComponent } from './Features/Category/edit-category/edit-category.component';
+import { AddCategoryComponent } from './features/category/add-category/add-category.component';
+import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
+import { BlogPostListComponent } from './features/blog-post/blog-post-list/blog-post-list.component';
+import { AddBlogPostComponent } from './features/blog-post/add-blog-post/add-blog-post.component'; 
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { EditCategoryComponent } from './Features/Category/edit-category/edit-ca
     NavabarComponent,
     CategoryListComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    BlogPostListComponent,
+    AddBlogPostComponent 
   ],
   imports: [
     BrowserModule,

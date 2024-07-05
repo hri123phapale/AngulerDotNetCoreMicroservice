@@ -1,2 +1,31 @@
- 
- <h1 class="mt-3">{{id}}</h1>
+<div class="container">
+    <h1 class="mt-3">Edit Category</h1>
+    <ng-container *ngIf="model else notfound">
+
+    </ng-container>
+
+    <ng-template #notfound>
+        <div class="alert alert-warning" role="alert">
+            Category does not exists
+        </div> 
+    </ng-template>
+
+    <form #form="ngForm" *ngIf="model" (ngSubmit)="OnSubmit()">
+        <div class="mt-3">
+             <label class="form-label">Id</label>
+             <input type="text" class="form-control" id="categoryid" name="categoryid" [(ngModel)]="model.id" disabled/> 
+         </div> 
+        <div class="mt-3">
+            <label class="form-label"> Name</label>
+             <input type="text" class="form-control" id="categoryname" name="categoryname" [(ngModel)]="model.name"/> 
+         </div> 
+         <div class="mt-3">
+            <label class="form-label">url handle</label>
+             <input type="text" class="form-control" id="categoryurlhandle" name="categoryurlhandle" [(ngModel)]="model.urlHandle"/> 
+         </div> 
+         <div class="mt-3 d-flex">
+              <button class="btn btn-danger m-2" (click)="OnDelete()">Delete</button>
+              <button class="btn btn-primary" type="submit">Save</button>
+         </div> 
+    </form>
+</div>

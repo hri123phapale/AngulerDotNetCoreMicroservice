@@ -1,8 +1,10 @@
-﻿using CodePulse.Api.Data;
+﻿using Azure.Core;
+using CodePulse.Api.Data;
 using CodePulse.Api.Models.Domain;
 using CodePulse.Api.Models.DTO;
 using CodePulse.Api.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace CodePulse.Api.Repository.Implementation
 {
@@ -41,6 +43,12 @@ namespace CodePulse.Api.Repository.Implementation
             await dbContext.SaveChangesAsync();
 
             return category;
+        } 
+        public async Task DeleteCategory(string id)
+        {
+            var category = await dbContext.Categories.FirstAsync(a => a.Id == Guid.Parse(id));
+            dbContext.Categories.Remove(category);
+            await dbContext.SaveChangesAsync();  
         }
     }
 }
