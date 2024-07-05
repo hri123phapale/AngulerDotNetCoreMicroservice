@@ -3430,11 +3430,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sai\\AngulerDotNetCoreMicroservice\\CodePulse\\Api\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
+      "projectUniqueName": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
       "projectName": "CodePulse.Api",
-      "projectPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\CodePulse\\Api\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
+      "projectPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
       "packagesPath": "C:\\Users\\Hrushikesh\\.nuget\\packages\\",
-      "outputPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\CodePulse\\Api\\CodePulse.Api\\CodePulse.Api\\obj\\",
+      "outputPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\CodePulse.Api\\CodePulse.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hrushikesh\\AppData\\Roaming\\NuGet\\NuGet.Config",

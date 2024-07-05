@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IABWdIdWKVk=",
+  "dgSpecHash": "yp2nYvam0j8=",
   "success": true,
-  "projectFilePath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\CodePulse\\Api\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
+  "projectFilePath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\CodePulse.Api\\CodePulse.Api\\CodePulse.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hrushikesh\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Hrushikesh\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
