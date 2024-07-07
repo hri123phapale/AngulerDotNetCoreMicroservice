@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CodePulse.Api.Migrations
+namespace categories.api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240703081300_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20240707111759_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,9 +43,8 @@ namespace CodePulse.Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IsVisible")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("PublishDate")
                         .HasColumnType("datetime2");

@@ -48,7 +48,8 @@ namespace CodePulse.Api.Repository.Implementation
         {
             var category = await dbContext.Categories.FirstAsync(a => a.Id == Guid.Parse(id));
             dbContext.Categories.Remove(category);
-            await dbContext.SaveChangesAsync();  
+            await dbContext.SaveChangesAsync(); 
+
         }
     }
 }

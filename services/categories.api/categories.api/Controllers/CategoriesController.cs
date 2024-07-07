@@ -35,7 +35,8 @@ namespace CodePulse.Api.Controllers
         }
         [HttpGet("GetAllCategories")]
         public   IActionResult  GetAllCategory()
-        { 
+        {
+
             var categories =   _iCategoryRepository.GetCategories();
             var categoriesDto = categories.Select(category => new CategoryRequestDto
             {
