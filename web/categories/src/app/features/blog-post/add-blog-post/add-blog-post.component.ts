@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { addblogpost } from '../models/add-blog.model';
+import { addblogpost } from '../models/add-blogpost.model';
 import { BlogpostService } from '../services/blogpost.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';

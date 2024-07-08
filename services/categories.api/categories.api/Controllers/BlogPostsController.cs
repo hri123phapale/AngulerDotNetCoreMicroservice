@@ -45,11 +45,11 @@ namespace CodePulse.Api.Controllers
             });
         }
         [HttpGet("GetAllBlogsPosts")]
-        public   IActionResult  GetAllBlogPost()
+        public async Task<IActionResult> GetAllBlogPosts()
         {
 
-            var blogposts =   _iBlogPostRepository.GetBlogPosts();
-            var model = blogposts.Select(blogPost => new BlogpostModel
+            var blogposts = await  _iBlogPostRepository.GetAllAsync();
+            var model = blogposts.ToList().Select(blogPost => new BlogpostModel
             {
                 Title = blogPost.Title,
                 UrlHandle = blogPost.UrlHandle,

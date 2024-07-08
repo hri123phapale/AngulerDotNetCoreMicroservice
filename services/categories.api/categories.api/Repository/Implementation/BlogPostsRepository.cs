@@ -23,9 +23,9 @@ namespace CodePulse.Api.Repository.Implementation
             await dbContext.SaveChangesAsync();
             return BlogPost;
         }
-        public IEnumerable<BlogPost> GetBlogPosts()
+        public  async Task< IEnumerable<BlogPost>> GetAllAsync()
         {
-            return dbContext.BlogPosts.ToList(); 
+            return await dbContext.BlogPosts.ToListAsync(); 
         }
 
         public async Task<BlogPost> GetBlogPostById(string id)
