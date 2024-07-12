@@ -1,0 +1,25 @@
+<ng-container *ngIf="blogpost$ | async as blogpost;else loader">
+ <div class="container">
+    <div class="col-12 col-md-8 col-lg-6 mx-auto">
+       <img [src]="blogpost.featuredImageUrl" 
+       [alt]="blogpost.title" 
+       class="img-fluid">
+
+       <h5 class="card-title">
+        {{blogpost.title}}
+    </h5>
+    <p class="card-text">
+        {{blogpost.shortDescription}}
+    </p> 
+
+    </div>
+ </div>
+</ng-container>
+
+<ng-template #loader>
+    <div class="text-center mt-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div> 
+</ng-template>

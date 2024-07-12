@@ -24,7 +24,7 @@ categoris$?:Observable<Category[]>;
   this.model= {
     title:'',
     shortDescription:'',
-    urlhandle:'',
+    urlHandle:'',
     content:'',
     featuredImageUrl:'',
     auther:'',

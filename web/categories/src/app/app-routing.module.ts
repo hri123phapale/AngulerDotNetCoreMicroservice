@@ -5,8 +5,18 @@ import { AddCategoryComponent } from './features/category/add-category/add-categ
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
 import { BlogPostListComponent } from './features/blog-post/blog-post-list/blog-post-list.component';
 import { AddBlogPostComponent } from './features/blog-post/add-blog-post/add-blog-post.component';
+import { HomeComponent } from './features/public/home/home.component';
+import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
  
-const routes: Routes = [
+const routes: Routes = [ 
+{
+  path:'',
+   component:HomeComponent
+},
+{
+  path:'blog/:url',
+   component:BlogDetailsComponent
+},
 {
  path:'admin/categories',
   component:CategoryListComponent

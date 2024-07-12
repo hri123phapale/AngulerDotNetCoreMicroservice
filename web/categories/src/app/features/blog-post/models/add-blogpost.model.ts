@@ -1,6 +1,6 @@
 export interface addblogpost{
     title:string,
-    urlhandle:string,
+    urlHandle:string,
     shortDescription:string,
     content:string,
     featuredImageUrl:string, 

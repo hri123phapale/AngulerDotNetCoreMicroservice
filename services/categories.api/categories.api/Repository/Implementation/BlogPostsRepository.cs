@@ -60,6 +60,12 @@ namespace CodePulse.Api.Repository.Implementation
             await dbContext.SaveChangesAsync(); 
 
         }
-         
+        public async Task<BlogPost> GetBlogPostByUrlHandle(string urlHandle)
+        {
+            return await dbContext.BlogPosts
+                .Include(a => a.Categories)
+                .FirstAsync(a => a.UrlHandle == urlHandle);
+        }
+
     }
 }

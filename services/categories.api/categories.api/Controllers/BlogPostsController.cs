@@ -112,6 +112,30 @@ namespace CodePulse.Api.Controllers
 
             return Ok(model);
         }
+        [HttpGet("GetBlogPostByUrlHandle/{url}")]
+        public async Task<IActionResult> GetBlogPostByUrlHandle(string url)
+        {
+            var blogPost = await _iBlogPostRepository.GetBlogPostByUrlHandle(url);
+            var model = new BlogpostDto
+            {
+                Title = blogPost.Title,
+                UrlHandle = blogPost.UrlHandle,
+                ShortDescription = blogPost.ShortDescription,
+                Content = blogPost.Content,
+                FeaturedImageUrl = blogPost.FeaturedImageUrl,
+                PublishDate = blogPost.PublishDate,
+                Auther = blogPost.Auther,
+                IsVisible = blogPost.IsVisible,
+                Categories = blogPost.Categories.Select(a => new CategoryRequestDto()
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    UrlHandle = a.UrlHandle
+                }).ToList()
+            };
+
+            return Ok(model);
+        }
         [HttpPut("updateBlogPost")]
         public async Task<IActionResult> UpdateBlogPost(BlogpostModel request)
         {

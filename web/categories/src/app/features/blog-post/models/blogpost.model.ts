@@ -3,7 +3,7 @@ import { Category } from "../../category/models/category.model";
 export interface blogpost{
     id:string;
     title:string;
-    urlhandle:string;
+    urlHandle:string;
     shortDescription:string;
     content:string;
     featuredImageUrl:string; 

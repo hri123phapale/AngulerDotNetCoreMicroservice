@@ -11,5 +11,6 @@ namespace CodePulse.Api.Repository.Interfaces
         Task<BlogPost> GetBlogPostById(string id);
         Task<BlogPost> UpdateBlogPost(BlogpostModel request);
         Task DeleteBlogPost(string id);
+        Task<BlogPost> GetBlogPostByUrlHandle(string urlHandle);
     }
 }
