@@ -13,11 +13,14 @@ namespace CodePulse.Api.Controllers
     {
         private readonly IBlogPostsRepository _iBlogPostRepository;
 
-        public BlogPostsController(IBlogPostsRepository iBlogPostRepository)
+        private readonly ICategoryRepository _iCategoryRepository;
+
+        public BlogPostsController(IBlogPostsRepository iBlogPostRepository, ICategoryRepository iCategoryRepository)
         {
             _iBlogPostRepository = iBlogPostRepository;
+            _iCategoryRepository = iCategoryRepository;
         }
-        [HttpPost("CreateBlogPost")] 
+        [HttpPost("CreateBlogPost")]
         public async Task<IActionResult> CreateBlogPost(BlogpostModel request)
         {
             var blogPost = new BlogPost
@@ -29,10 +32,19 @@ namespace CodePulse.Api.Controllers
                 FeaturedImageUrl = request.FeaturedImageUrl,
                 PublishDate = request.PublishDate,
                 Auther = request.Auther,
-                IsVisible = request.IsVisible
-            }; 
-            var blogPostNew = await _iBlogPostRepository.CreateAsync(blogPost); 
-            return Ok(new BlogpostModel 
+                IsVisible = request.IsVisible,
+                Categories = new List<Category>()
+            };
+            foreach (var categoryId in request.Categories)
+            {
+                var existingCategory = await _iCategoryRepository.GetCategoryById(categoryId.ToString());
+                if (existingCategory is not null)
+                {
+                    blogPost.Categories.Add(existingCategory);
+                }
+            }
+            var blogPostNew = await _iBlogPostRepository.CreateAsync(blogPost);
+            return Ok(new BlogpostDto
             {
                 Title = blogPostNew.Title,
                 UrlHandle = blogPostNew.UrlHandle,
@@ -41,15 +53,21 @@ namespace CodePulse.Api.Controllers
                 FeaturedImageUrl = blogPostNew.FeaturedImageUrl,
                 PublishDate = blogPostNew.PublishDate,
                 Auther = blogPostNew.Auther,
-                IsVisible = blogPostNew.IsVisible
+                IsVisible = blogPostNew.IsVisible,
+                Categories = blogPostNew.Categories.Select(a => new CategoryRequestDto()
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    UrlHandle = a.UrlHandle
+                }).ToList()
             });
         }
         [HttpGet("GetAllBlogsPosts")]
         public async Task<IActionResult> GetAllBlogPosts()
         {
 
-            var blogposts = await  _iBlogPostRepository.GetAllAsync();
-            var model = blogposts.ToList().Select(blogPost => new BlogpostModel
+            var blogposts = await _iBlogPostRepository.GetAllAsync();
+            var model = blogposts.ToList().Select(blogPost => new BlogpostDto
             {
                 Title = blogPost.Title,
                 UrlHandle = blogPost.UrlHandle,
@@ -58,17 +76,23 @@ namespace CodePulse.Api.Controllers
                 FeaturedImageUrl = blogPost.FeaturedImageUrl,
                 PublishDate = blogPost.PublishDate,
                 Auther = blogPost.Auther,
-                IsVisible = blogPost.IsVisible
+                IsVisible = blogPost.IsVisible,
+                Categories = blogPost.Categories.Select(a => new CategoryRequestDto()
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    UrlHandle = a.UrlHandle
+                }).ToList()
             }).ToList();
 
-             return Ok(model);
+            return Ok(model);
         }
 
         [HttpGet("GetBlogPost/{id}")]
         public async Task<IActionResult> GetBlogPostById(string id)
         {
-            var blogPost =await _iBlogPostRepository.GetBlogPostById(id);
-            var model = new BlogpostModel
+            var blogPost = await _iBlogPostRepository.GetBlogPostById(id);
+            var model = new BlogpostDto
             {
                 Title = blogPost.Title,
                 UrlHandle = blogPost.UrlHandle,
@@ -77,8 +101,14 @@ namespace CodePulse.Api.Controllers
                 FeaturedImageUrl = blogPost.FeaturedImageUrl,
                 PublishDate = blogPost.PublishDate,
                 Auther = blogPost.Auther,
-                IsVisible = blogPost.IsVisible
-            } ;
+                IsVisible = blogPost.IsVisible,
+                Categories = blogPost.Categories.Select(a => new CategoryRequestDto()
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    UrlHandle = a.UrlHandle
+                }).ToList()
+            };
 
             return Ok(model);
         }
@@ -86,7 +116,7 @@ namespace CodePulse.Api.Controllers
         public async Task<IActionResult> UpdateBlogPost(BlogpostModel request)
         {
             var blogPost = await _iBlogPostRepository.UpdateBlogPost(request);
-            var model = new BlogpostModel
+            var model = new BlogpostDto
             {
                 Title = blogPost.Title,
                 UrlHandle = blogPost.UrlHandle,
@@ -95,7 +125,13 @@ namespace CodePulse.Api.Controllers
                 FeaturedImageUrl = blogPost.FeaturedImageUrl,
                 PublishDate = blogPost.PublishDate,
                 Auther = blogPost.Auther,
-                IsVisible = blogPost.IsVisible
+                IsVisible = blogPost.IsVisible,
+                Categories = blogPost.Categories.Select(a => new CategoryRequestDto()
+                {
+                    Id = a.Id,
+                    Name = a.Name,
+                    UrlHandle = a.UrlHandle
+                }).ToList()
             };
 
             return Ok(model);
@@ -103,7 +139,7 @@ namespace CodePulse.Api.Controllers
         [HttpDelete("deleteBlogPost/{id}")]
         public async Task<IActionResult> DeleteBlogPost(string id)
         {
-             await _iBlogPostRepository.DeleteBlogPost(id);  
+            await _iBlogPostRepository.DeleteBlogPost(id);
             return Ok();
         }
     }

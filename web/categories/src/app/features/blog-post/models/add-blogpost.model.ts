@@ -6,5 +6,6 @@ export interface addblogpost{
     featuredImageUrl:string, 
     publishDate:Date,
     auther:string,
-    isVisible:boolean 
+    isVisible:boolean, 
+    categories:string[]; 
 }

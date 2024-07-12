@@ -12,6 +12,7 @@
         public DateTime PublishDate { get;  set; }
         public string Auther { get;  set; }
         public bool IsVisible { get;  set; }
+        public ICollection<Category> Categories { get; set; }
 
     }
 }

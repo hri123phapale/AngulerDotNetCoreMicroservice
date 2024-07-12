@@ -25,12 +25,16 @@ namespace CodePulse.Api.Repository.Implementation
         }
         public  async Task< IEnumerable<BlogPost>> GetAllAsync()
         {
-            return await dbContext.BlogPosts.ToListAsync(); 
+            return await dbContext.BlogPosts
+                .Include(a=>a.Categories)
+                .ToListAsync(); 
         }
 
         public async Task<BlogPost> GetBlogPostById(string id)
         { 
-            return await dbContext.BlogPosts.FirstAsync(a => a.Id == Guid.Parse(id));
+            return await dbContext.BlogPosts
+                .Include(a => a.Categories)
+                .FirstAsync(a => a.Id == Guid.Parse(id));
         }
         public async Task<BlogPost> UpdateBlogPost(BlogpostModel request)
         {
@@ -43,7 +47,6 @@ namespace CodePulse.Api.Repository.Implementation
             blogPost.PublishDate = request.PublishDate;
             blogPost.Auther = request.Auther;
             blogPost.IsVisible = request.IsVisible; 
-
 
             dbContext.BlogPosts.Update(blogPost);
             await dbContext.SaveChangesAsync();

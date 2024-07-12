@@ -9,8 +9,8 @@
               <tr>
                 <th scope="col">Title</th> 
                 <th scope="col">Short Description</th> 
-                <th scope="col">Is Visible</th>  
-                <th scope="col"></th>   
+                <th scope="col">Is Visible ?</th>  
+                <th scope="col">Categories</th>   
               </tr>
             </thead>
             <tbody>
@@ -19,7 +19,9 @@
                 <td>{{blog.shortDescription}}</td> 
                 <td>{{blog.isVisible}}</td> 
                 <td>
-
+                  <span  *ngFor="let category of blog.categories">
+                    <span class="badge text-bg-secondary mr-2">{{category.name}}</span> 
+                  </span> 
                 </td>
               </tr> 
             </tbody>
