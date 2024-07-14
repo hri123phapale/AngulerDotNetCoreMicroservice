@@ -2,6 +2,7 @@
 using CodePulse.Api.Models.Domain;
 using CodePulse.Api.Models.DTO;
 using CodePulse.Api.Repository.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +22,7 @@ namespace CodePulse.Api.Controllers
             _iCategoryRepository = iCategoryRepository;
         }
         [HttpPost("CreateBlogPost")]
+        [Authorize(Roles ="Writer")]
         public async Task<IActionResult> CreateBlogPost(BlogpostModel request)
         {
             var blogPost = new BlogPost
@@ -137,6 +139,7 @@ namespace CodePulse.Api.Controllers
             return Ok(model);
         }
         [HttpPut("updateBlogPost")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> UpdateBlogPost(BlogpostModel request)
         {
             var blogPost = await _iBlogPostRepository.UpdateBlogPost(request);
@@ -161,6 +164,7 @@ namespace CodePulse.Api.Controllers
             return Ok(model);
         }
         [HttpDelete("deleteBlogPost/{id}")]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> DeleteBlogPost(string id)
         {
             await _iBlogPostRepository.DeleteBlogPost(id);
