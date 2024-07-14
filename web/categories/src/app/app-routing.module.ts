@@ -9,6 +9,7 @@ import { HomeComponent } from './features/public/home/home.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { authGuard } from './features/guards/auth.guard';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
  
 const routes: Routes = [ 
 {
@@ -47,6 +48,10 @@ const routes: Routes = [
   path:'admin/blogposts/add',
    component:AddBlogPostComponent,
    canActivate:[authGuard]
+},
+{
+  path:'**',
+   component:PageNotFoundComponent
 }
 ];
 

@@ -15,7 +15,8 @@ import { MarkdownModule } from 'ngx-markdown';
 import { HomeComponent } from './features/public/home/home.component';
 import { BlogDetailsComponent } from './features/public/blog-details/blog-details.component';
 import { LoginComponent } from './features/auth/login/login.component';
-import { AuthInterceptor } from './core/components/navabar/interceptor/auth.interceptor';
+import { AuthInterceptor } from './core/components/navabar/interceptor/auth.interceptor'; 
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,15 @@ import { AuthInterceptor } from './core/components/navabar/interceptor/auth.inte
     AddBlogPostComponent,
     HomeComponent,
     BlogDetailsComponent,
-    LoginComponent 
+    LoginComponent,
+    PageNotFoundComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot() 
   ],
   providers: [ {
     provide:HTTP_INTERCEPTORS,

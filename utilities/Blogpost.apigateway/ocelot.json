@@ -1,0 +1,19 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5146
+        }
+      ],
+      "UpstreamPathTemplate": "/blog-post-api/api/v1/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "patch" ]
+    }
+  ],
+  "GlobalConfiguration": {
+  }
+}
+ 

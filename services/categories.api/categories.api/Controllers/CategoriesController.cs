@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodePulse.Api.Controllers
-{
-    [Route("api/[controller]")]
+{ 
+    [Route("api/v1/categories")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {
