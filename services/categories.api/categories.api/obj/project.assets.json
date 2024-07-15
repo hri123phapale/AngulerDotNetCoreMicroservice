@@ -3326,9 +3326,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\categories.api\\categories.api\\categories.api.csproj",
-      "projectName": "categories.api",
-      "projectPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\categories.api\\categories.api\\categories.api.csproj",
+      "projectUniqueName": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\categories.api\\categories.api\\blogposts.api.csproj",
+      "projectName": "blogposts.api",
+      "projectPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\categories.api\\categories.api\\blogposts.api.csproj",
       "packagesPath": "C:\\Users\\Hrushikesh\\.nuget\\packages\\",
       "outputPath": "C:\\Sai\\AngulerDotNetCoreMicroservice\\services\\categories.api\\categories.api\\obj\\",
       "projectStyle": "PackageReference",
