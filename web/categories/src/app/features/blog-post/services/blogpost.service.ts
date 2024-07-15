@@ -14,26 +14,26 @@ export class BlogpostService {
 
   createBlogpost(model:addblogpost):Observable<addblogpost>
   {
-    return this.httpClient.post<addblogpost>(`${environment.apibaseUrl}/api/BlogPosts/CreateBlogPost?addAuth=true`,model);
+    return this.httpClient.post<addblogpost>(`${environment.apibaseUrl}/BlogPosts/CreateBlogPost?addAuth=true`,model);
   }
   getAllblogpost():Observable<blogpost[]>
   {
-    return this.httpClient.get<blogpost[]>(`${environment.apibaseUrl}/api/BlogPosts/GetAllBlogsPosts`);
+    return this.httpClient.get<blogpost[]>(`${environment.apibaseUrl}/BlogPosts/GetAllBlogsPosts`);
   }
   getBlogpostbyId(id:string):Observable<addblogpost>
   {
-    return this.httpClient.get<addblogpost>(`${environment.apibaseUrl}/api/BlogPosts/GetBlogPost/${id}`);
+    return this.httpClient.get<addblogpost>(`${environment.apibaseUrl}/BlogPosts/GetBlogPost/${id}`);
   }
   updateBlogPost(model:addblogpost):Observable<addblogpost>
   {
-    return this.httpClient.put<addblogpost>(`${environment.apibaseUrl}/api/BlogPosts/updateBlogPost?addAuth=true`,model);
+    return this.httpClient.put<addblogpost>(`${environment.apibaseUrl}/BlogPosts/updateBlogPost?addAuth=true`,model);
   }
   deleteBlogPost(id:string):Observable<addblogpost>
   {
-    return this.httpClient.delete<addblogpost>(`${environment.apibaseUrl}/api/BlogPosts/deleteBlogPost/${id}?addAuth=true`);
+    return this.httpClient.delete<addblogpost>(`${environment.apibaseUrl}/BlogPosts/deleteBlogPost/${id}?addAuth=true`);
   }
   getBlogpostbyUrl(url:string):Observable<blogpost>
   {
-    return this.httpClient.get<blogpost>(`${environment.apibaseUrl}/api/BlogPosts/GetBlogPostByUrlHandle/${url}`);
+    return this.httpClient.get<blogpost>(`${environment.apibaseUrl}/BlogPosts/GetBlogPostByUrlHandle/${url}`);
   }
 }

@@ -22,7 +22,7 @@ export class AuthService {
 
    loginResuest(request:LoginRequest):Observable<LoginResponse>
    {
-     return this.http.post<LoginResponse>(`${environment.apibaseUrl}/api/auth/login`,{
+     return this.http.post<LoginResponse>(`${environment.apibaseUrl}/auth/login`,{
         email:request.email,
         password:request.password
       });

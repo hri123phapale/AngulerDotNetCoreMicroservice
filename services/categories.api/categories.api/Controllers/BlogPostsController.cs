@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CodePulse.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/blogposts")]
     [ApiController]
     public class BlogPostsController : ControllerBase
     {

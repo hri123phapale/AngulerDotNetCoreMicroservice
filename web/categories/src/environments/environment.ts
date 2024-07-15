@@ -1,3 +1,4 @@
 export const environment = {
-    apibaseUrl:"http://localhost:5146"
+    apibaseUrl:"http://localhost:5211/blog-post-api"
 };
+
