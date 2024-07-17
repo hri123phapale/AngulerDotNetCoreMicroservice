@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavabarComponent } from './core/components/navabar/navabar.component';
 import { CategoryListComponent } from './features/category/category-list/category-list.component'; 
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';
@@ -37,7 +37,8 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MarkdownModule.forRoot() 
+    MarkdownModule.forRoot() ,
+    ReactiveFormsModule
   ],
   providers: [ {
     provide:HTTP_INTERCEPTORS,
