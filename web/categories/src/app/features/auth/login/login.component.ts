@@ -41,11 +41,13 @@ export class LoginComponent implements OnInit {
           ]
         ],
       }
-     )
+     );
+
+     debugger;
   }
 
- OnLoginSubmit() {
-  if(!this.form.invalid)
+ OnLoginSubmit() {  
+  if(this.form.invalid)
   {
     return;
   }

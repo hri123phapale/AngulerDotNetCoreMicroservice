@@ -1,5 +1,5 @@
-<div class="container" [formGroup]="form">
-  <form [formGroup]="form" (ngSubmit)="OnLoginSubmit()">
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="OnLoginSubmit()" class="form-group">
     <div class="mt-5">
         <div class="col-12 col-md-6 col-lg-4 mx-auto">
          <h1>Login</h1> 
@@ -12,10 +12,10 @@
                   aria-describedby="emailHelp" 
                   placeholder="Enter email"
                   formControlName="email"> 
-                  <div *ngIf="f['email'].errors" class="invalid-feedback">
-                    <div *ngIf="f['email'].errors['required']">Email is required</div>
-                    <div *ngIf="f['email'].errors['email'].errors['email']">Email is invalid</div>
-                  </div>
+                  <!-- <div class="invalid-feedback">  -->
+                    <div *ngIf="this.form.controls['email'].errors">Email is required</div>
+                    <!-- <div *ngIf="this.form.controls['email'].errors['email']">Email is invalid</div>  -->
+                 <!-- </div> -->
                 </div>  
                 <div class="form-group mb-3">
                   <label for="password">Password</label>
